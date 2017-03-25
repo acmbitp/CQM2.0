@@ -1,4 +1,4 @@
-                                                                               /* EDITORIAL FOR CQMS4C1 */
+                                                                               /* EDITORIAL FOR CQMS4C2 */
 Editorial by-Vishal Kumar.
 
 PROBLEM  A(Arya and Sansa):-
