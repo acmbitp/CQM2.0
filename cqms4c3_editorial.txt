@@ -1,0 +1,90 @@
+                                                                               /* EDITORIAL FOR CQMS4C1 */
+Editorial by-Vishal Kumar.
+
+PROBLEM  A(Arya and Sansa):-
+          Statement- You are given an array of integers and you have to check whether arya wins or sansa.
+
+          Solution - Just sum up all the elements of array and if sum is even return "arya" else return "sansa".
+
+          Time Complexity- O(n).
+
+          Tag- Implementation, Cakewalk.
+
+
+PROBLEM B(Alice and Bob):-
+        Statement- You are given an integer n and you have to find the absolute difference between sum of all  even numbers upto n and              sum of  all odd numbers upto n.   
+
+        Solution- Let's break the question in two cases. Case 1- If n is even and case 2 if n is odd. Now, in case 1 , the answer is (2+4+6+...               +n)- (1+3+5+..+n-1). which can be further simplified into (2-1) + (4-3) +... +(n-(n-1)). So the final result is 1+1+..+1(n/2times). So if n           is  even, answer is n/2. Now what happens if n is odd . Let's do some math again . (1+3+5+...+n) - (2+4+6+...+n-1), which can be                   written  as 1+(3-2)+(5-4)+...(n-(n-1)). So the file answer is 1+(1+1+..+1(n/2times)). which is 1+(n/2).
+
+       Time Complexity- O(1).
+
+       Tag- Easy,Math.
+
+
+PROBLEM  C(The Last  Game of TVD):-
+         Statement- You have three integers a,b,n. A game is going on between Stefan and Damon. In each move a player decreses the                   value of n with gcd of his number and n. The player who can't make any move loses.
+
+         Solution- You simply have to do what the problem says . After performig every single move  check if n is zero or not, if n is zero                    then current player wins.
+
+         Time Complexity- O(n).
+
+         Tag - Implementation, Math, Easy.
+
+
+PROBLEM  D(Lucky Number 3):-
+         Statement- You are given an integer . And you have to check whether it is concatenation of 4,48 or 488 or not. 
+
+         Solution - Let's observe something here . If a number contains any number other than 4 and 8 ,It will become Unlucky. Now, if the            number contains only 4 and 8, then if the first value of the number is 8 then it will become unlucky , because  neither of (4,48, or                 488) is  starting with 8 . otherwise check the existance of  a substring of 888 in the number, if 888 is present in the number than                  number is unlucky, else number is lucky.
+
+         Time complexity- O(len(number)).
+
+         Tag- Implementation,Medium.
+ 
+
+PROBLEM E(Forest Game ):-
+         Statement- There's a n metre depp well. Two players play following game alternately.Initially the bucket is at the bottom of the                 well. Each player in its turn can pull the bucket  by any prime power number , i.e. pow(p,x), s.t. p is a prime and x=0. The player who        can't   make his move loses   the game. Find who wins the game.
+
+        Solution - Second palyer(Devbrat ) wins if n%6==0 else First player(Aman ) wins. These kind of questions require solution based               on observation.
+        Explanation- Let us try to see what happens for the game on some small examples.
+        For n=1, first player will win.
+        For n=2,3,5,first player will win as these numbers are prime.
+        For n=4, the first player will also win as 4=pw(2,2).
+       For n=6, player can not pull 6 metre in his first turn, as 6 is not a prime power. Hence, whatever number of metres first player pulls,          he will end up with 1,2,…,5 coins, all of which are a wining positions for the other person. Hence, n=6 is losing position for first                     player.
+       You can notice that numbers from n=7 to 11, are also winning positions, as the first player can make a move such that remaining               depth of well is equal to 6, which is a losing position.
+      For n=12, the first player can win if he can move to some losing position, i.e. he could pull either 6 or 12 metres. He can't pull any  of         these as they are not prime powers. So n=12 is a losing position.
+      Similarly any multiple of 6 is a losing position, and other numbers are winning position for first player.
+     
+     Time Complexity- O(1).
+
+     Tags- Games, Finding Patterns, Meduim.
+
+
+PROBLEM E(King's Landing ):-
+         Statement - You are given an array A of n integers initially. You have to perform m operations . In each operation three integers are          given l,r,val. Add val to all the elements of array  from index l to r. After performing these operation . Find sum of all elements from          index x to y.
+        
+       Solution - There are 3 possible solutions of this question. One with segmented tree, other one is checking how many idexes lies in        range [x,y] in each operation and sum up those values and find total sum of initial array and add these two. But I am going to             discuss  the 3rd method which is called "Method of partial sum " and works in very interesting way in case of updating a range by a        value. 
+      Explanation- Create an array B of length n+1 . And intialise all element of the array by 0.  Now whenever we have to do an operation.         We do following. 
+      for(i=0 to m )
+         int l,r, val;
+        B[l]=B[l]+val;
+        B[r+1]=B[r+1]-val;
+
+     for(i=1 to n) 
+         B[i]+=B[i-1];
+        A[i]+=B[i];
+
+    what we did here here , we created an array B whose all elements had initial value 0 and performed m operations and found out how     much value is added to a particular index. 
+    Why this solution works - We have updated only two values in each operation l and r+1.  But since ,we are adding the same value in    all index from l to r . This makes our solution  correct. Because after performing all the operations , we are adding previous value of in     the current value.  and add the updated value of B[i] in original array.
+   Now  , we have updated value of array , we can do whatever we want .
+
+  Time Complexity- O(max(n,m)), O(nlogn)(segmented tree).
+  Tags- Data Structure, Hard.
+   
+    
+     
+   
+      
+
+ 
+
+          
