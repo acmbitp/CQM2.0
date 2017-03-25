@@ -34,7 +34,7 @@ PROBLEM  C(The Last  Game of TVD):-
 PROBLEM  D(Lucky Number 3):-
          Statement- You are given an integer . And you have to check whether it is concatenation of 4,48 or 488 or not. 
 
-         Solution - Let's observe something here . If a number contains any number other than 4 and 8 ,It will become Unlucky. Now, if the number contains only 4 and 8, then if the first value of the number is 8 then it will become unlucky , because  neither of (4,48, or  488) is  starting with 8 . otherwise check the existance of  a substring of 888 in the number, if 888 is present in the number than     number is unlucky, else number is lucky.
+         Solution - Let's observe something here . If a number contains any number other than 4 and 8 ,It will become Unlucky. Now, if the number contains only 4 and 8, then if the first value of the number is 8 then it will become unlucky , because  neither of (4,48, or 488) is  starting with 8 . otherwise check the existance of  a substring of 888 in the number, if 888 is present in the number than number is unlucky, else number is lucky.
 
          Time complexity- O(len(number)).
 
