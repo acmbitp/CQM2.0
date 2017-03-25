@@ -51,7 +51,7 @@ PROBLEM E(Forest Game ):-
         For n=4, the first player will also win as 4=pw(2,2).
        For n=6, player can not pull 6 metre in his first turn, as 6 is not a prime power. Hence, whatever number of metres first player pulls, he will end up with 1,2,…,5 coins, all of which are a wining positions for the other person. Hence, n=6 is losing position for first player.
        You can notice that numbers from n=7 to 11, are also winning positions, as the first player can make a move such that remaining          depth of well is equal to 6, which is a losing position.
-      For n=12, the first player can win if he can move to some losing position, i.e. he could pull either 6 or 12 metres. He can't pull any of these as they are not prime powers. So n=12 is a losing position.
+      For n=12, the first player can win if he can move to some losing position, i.e. he could pull either 6 or 12 metres. He can't pull        any of these as they are not prime powers. So n=12 is a losing position.
       Similarly any multiple of 6 is a losing position, and other numbers are winning position for first player.
      
      Time Complexity- O(1).
@@ -62,7 +62,7 @@ PROBLEM E(Forest Game ):-
 PROBLEM E(King's Landing ):-
          Statement - You are given an array A of n integers initially. You have to perform m operations . In each operation three integers are given l,r,val. Add val to all the elements of array  from index l to r. After performing these operation . Find sum of all elements from index x to y.
         
-       Solution - There are 3 possible solutions of this question. One with segmented tree, other one is checking how many idexes lies in range [x,y] in each operation and sum up those values and find total sum of initial array and add these two. But I am going to discuss the 3rd method which is called "Method of partial sum " and works in very interesting way in case of updating a range by a        value. 
+       Solution - There are 3 possible solutions of this question. One with segmented tree, other one is checking how many idexes lies in range [x,y] in each operation and sum up those values and find total sum of initial array and add these two. But I am going to discuss the 3rd method which is called "Method of partial sum " and works in very interesting way in case of updating a range by a value. 
       Explanation- Create an array B of length n+1 . And intialise all element of the array by 0.  Now whenever we have to do an operation. We do following. 
       for(i=0 to m )
          int l,r, val;
@@ -73,9 +73,7 @@ PROBLEM E(King's Landing ):-
          B[i]+=B[i-1];
         A[i]+=B[i];
 
-what we did here here, we created an array B whose all elements had initial value 0 and performed m operations and found out how     much value is added to a particular index. 
-Why this solution works - We have updated only two values in each operation l and r+1.  But since ,we are adding the same value in    all index from l to r. This makes our solution  correct. Because after performing all the operations , we are adding previous value of in the current value and add the updated value of B[i] in original array.
- Now, we have updated value of array , we can do whatever we want .
+what we did here here, we created an array B whose all elements had initial value 0 and performed m operations and found out how much value is added to a particular index. Why this solution works - We have updated only two values in each operation l and r+1.  But since ,we are adding the same value in all index from l to r. This makes our solution  correct. Because after performing all the operations , we are adding previous value of in the current value and add the updated value of B[i] in original array.Now, we have updated value of array , we can do whatever we want .
 
   Time Complexity- O(max(n,m)), O(nlogn)(segmented tree).
   Tags- Data Structure, Hard.
